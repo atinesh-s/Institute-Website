@@ -1,0 +1,198 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Site" %>
+
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="templatemo_style.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="Images/favicon.ico">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://1-ps.googleusercontent.com/h/www.devirtuoso.com/Examples/Styling-Dropdown/jquery.selectbox-0.5.js.pagespeed.jm.y1bHdt37Ep.js"></script>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+<meta charset=utf-8 />
+</head>
+<body>
+<div id="fb-root"></div>
+<script>    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+    } (document, 'script', 'facebook-jssdk'));</script>
+<form runat="server" id="form">
+<asp:SqlDataSource ID="sqldtsrcnewsfeed" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:Datasrc_ConnectionString %>" 
+        SelectCommand="SELECT [NewsFeed] FROM [NewsFeed_Table]"></asp:SqlDataSource>
+<asp:ScriptManager ID="ScriptManager" runat="server">
+    </asp:ScriptManager>
+<div id="templatemo_wrapper">
+
+	<div id="templatemo_header">
+    
+    	<div id="site_title">
+		<table>
+			<tr>
+				<td><img src="Images/logo.png" alt="Site Title" width="100" height="100" /></td>
+                <td width="400px">
+                    <asp:Label runat="server" ID="lblmnu" 
+                        Text="First Choice Institute of AISECT Education" Font-Names="Broadway" 
+                        Font-Size="30px" Font-Bold="True" Width="380px"></asp:Label></td>
+                <td align="right" style="font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; width: 300px;">
+                     <p style="margin-left: 100px; height: 50px;">
+                         <asp:Label ID="Label1" runat="server" Text="Need Help Just Call"></asp:Label><br/>
+                         <asp:Label ID="Label2" runat="server" Text="+91-9589497323"></asp:Label>
+                         </p>
+                </td>
+                <td>
+                      <asp:Image ID="imgcall" Height="80px" Width="80px" runat="server" ImageUrl="~/Images/help call.png" />    
+                </td>
+			</tr>
+		</table>          
+      	</div>
+        
+        <div class="cleaner"></div>
+	</div> <!-- end of header -->
+    
+    
+    <div id="templatemo_menu">
+    
+            <ul style="font-size: 12px">
+                <li>
+                
+                <a href="default.aspx" class="current"><asp:Image runat="server" ID="imghome" Height="12px" Width="12px" ImageUrl="Images/home.gif"/> Home</a>
+                </li>
+                <li><a href="courses.aspx">Courses</a></li>
+                <li><a href="login.aspx">Login</a></li>
+                <li><a href="aboutUs.aspx">About Us</a></li>
+                <li><a href="contactUs.aspx">Contact Us</a></li>
+            </ul>    	
+    
+    	</div> <!-- end of templatemo_menu -->
+    
+    <div id="templatemo_content_wrapper"><span class="top"></span><span class="bottom"></span>
+        <div id="templatemo_content">
+        
+            <!-- end of templatemo_slider -->  
+            
+        <asp:ContentPlaceHolder runat="server" ID="HeadContent">
+                
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder id="MainContent" runat="server">
+            
+        </asp:ContentPlaceHolder>   
+
+        </div> <!-- end of templatemo_content -->
+        
+        <div id="templatemo_sidebar">
+            
+            <div class="separator" align="center">
+                <asp:Image ID="imgloggedin" runat="server" Height="20px" 
+                                ImageUrl="~/Images/login.png" Width="20px" />
+                            <asp:Label ID="lblloggedin" runat="server" Text="Welcome : " 
+                    ForeColor="White" Font-Size="12px"></asp:Label>
+                            <asp:Label ID="lblloginname" runat="server" ForeColor="#00CC66" 
+                    Font-Bold="True" Font-Size="12px"></asp:Label>
+                            <br/>
+                            <asp:LinkButton ID="lnkbtnlogout" runat="server" Text="Log Out" 
+                                ForeColor="White" onclick="lnkbtnlogout_Click" 
+                    Font-Size="12px" Font-Bold="True" CssClass="link"></asp:LinkButton>
+            </div>
+            
+            <div class="separator">
+        
+                <div class="rss_twitter twitter">
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="" target="_parent">LIKE US <span>on Facebook</span></a>
+                            </td>
+                            <td>
+                                <div class="fb-like" data-href="http://www.facebook.com/FirstChoiceInstitute" 
+                                data-send="false" data-layout="box_count" data-width="80" data-show-faces="true" 
+                                data-font="arial"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div align="center">
+                    <asp:Button ID="btnvisit" runat="server" BackColor="#459AA9" Font-Names="Arial" 
+                        Font-Size="12px" ForeColor="#003333" Height="35px" Width="170px" />
+                    <asp:RoundedCornersExtender ID="btnvisit_RoundedCornersExtender" runat="server" 
+                        BorderColor="0, 51, 51" Enabled="True" Radius="10" TargetControlID="btnvisit">
+                    </asp:RoundedCornersExtender>
+                </div>
+            
+            </div>
+            
+             
+            <div class="separator" align="center">
+                    <h3><asp:Image ID="imgrecupdt" Height="30px" Width="30px" 
+                            runat="server" ImageUrl="~/Images/recent post.png" />Latest Updates</h3>
+                    <marquee behavior="scroll" direction="up" scrollamount="2" scrolldelay="80" 
+                             onmouseover="this.stop();" onmouseout="this.start();" id="marqpdt" 
+                             style="text-align: left" width="220px" height="300px">
+                        <asp:ListView ID="rcntupdts" runat="server" DataSourceID="sqldtsrcnewsfeed">
+                        <LayoutTemplate>
+                            <div id="itemPlaceholder" runat="server">
+                            </div>
+                        </LayoutTemplate>
+                        <ItemTemplate>
+                            <table style="width:100%">
+                                <tr>
+                                    <td align="center">
+                                        <div class="separator2">
+                                        <asp:Image ID="imgtop" runat="server" ImageUrl="~/Images/quote top.png" ImageAlign="Left" Width="10" Height="10"></asp:Image>
+                                        <br/>
+                                        <asp:Label ID="lblnews" runat="server" Text='<%#Eval("NewsFeed") %>' Font-Size="12px" ForeColor="White" Font-Names="Arial"></asp:Label>
+                                        <br/>   
+                                        <asp:Image ID="tmgbottom" runat="server"  ImageUrl="~/Images/quote bottom.png" ImageAlign="Right" Height="10" Width="10"></asp:Image>
+                                        <br/>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>                         
+                        </ItemTemplate> 
+                        </asp:ListView></marquee>
+                </div>
+                <div class="separator3" align="center">
+                    <h3><asp:Image ID="imgvis" Height="30px" Width="30px" 
+                            runat="server" ImageUrl="~/Images/user group.png" />Visitors</h3>
+                    <div class="separator3" 
+                        style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #FFFFFF;">
+                        No. Of Visitors:&nbsp;<asp:Label ID="lblvis" runat="server" 
+                            Font-Names="Arial" Font-Bold="True" ForeColor="#00CC66" Font-Italic="True" 
+                            Font-Size="16px"></asp:Label>                      
+                    </div>
+                </div>    
+            </div>
+    
+    	<div class="cleaner"></div>
+    </div> <!-- end of content_wrapper -->
+    
+  <div id="templatemo_footer">
+
+        <ul class="footer_menu" style="font-size: 12px">
+            <li><a href="feedback.aspx">Feedback</a></li>
+            <li><a href="sitemap.aspx">Sitemap</a></li>
+            <li><a href="contactUs.aspx">Contact Us</a></li>
+        </ul>
+    
+        <p style="font-size: 10px">Copyright © 2013 First Choice Institute | 
+        Designed by <a href="http://in.linkedin.com/in/22990atinesh" target="_parent">Atinesh</a></p>
+  </div> 
+  <!-- end of footer -->
+
+</div> <!-- end of wrapper -->
+
+</form>
+</body>
+</html>
+        
+
